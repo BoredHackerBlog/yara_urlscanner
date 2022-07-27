@@ -1,0 +1,6 @@
+flask
+huey
+gunicorn
+yara-python
+requests
+apprise
