@@ -13,6 +13,30 @@ install docker, git clone the repo, find #CHANGEME in various files and change t
 
 Modify the docker command as needed.
 
+# Using:
+There is no webui. You can use curl, python, etc...
+
+```
+curl --request POST \
+  --url http://YOUR_HOST:5000/scan \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data url=https://example.com
+
+
+import requests
+url = "http://YOUR_HOST:5000/scan"
+payload = "url=https://example.com"
+headers = {"Content-Type": "application/x-www-form-urlencoded"}
+response = requests.request("POST", url, data=payload, headers=headers)
+print(response.text)
+
+# I think this should work too.
+import requests
+def screenshot(domain):
+    data = {'url': "https://example.com"}
+    requests.post('http://YOUR_HOST:8888/scan', data=data)
+```
+
 Check this out this related content:
 - https://github.com/BoredHackerBlog/certstream_to_littleshot
 - https://www.boredhackerblog.info/2022/07/screenshottingscanning-domains-from.html
