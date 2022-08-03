@@ -3,6 +3,8 @@ Downloads html code from url and scans with yara and notifies whatever you want
 
 Essentially, I'm using requests to download html content from a url and scanning it with yara.
 
+warning: there is some memory issue with huey worker. not sure what it is but i'd recommend setting up the docker container to auto-restart...
+
 # Design
 Flask app takes in a URL request, queues a task with huey, huey task downloads html content with requests, yara scans the content, if yara matches are found then apprise can be used for notification or you can log the info. Code is easy to modify.
 
